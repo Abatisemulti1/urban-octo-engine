@@ -1546,17 +1546,22 @@
 
         });
 
-        $('.myBtn').on('click', function () {
+       /*  $('.myBtn').on('click', function () {
             $('#myModal').css('display', 'block');
         });
-
         $(".close").on('click', function () {
             $('#myModal').css('display', 'none');
         });
 
+ */
 
-
-
+    let myBtn = document.querySelectorAll('.myBtn')
+    myBtn.forEach(myBtn => myBtn.addEventListener('click', () => {
+    myModal.style.display = 'block'
+    }))
+    document.querySelector('.close').addEventListener('click', () => {
+    myModal.style.display = 'none'
+    })
         var setWallet = function (e) {
             $('.wallet').val(e);
             $('#walletName').html(e);
