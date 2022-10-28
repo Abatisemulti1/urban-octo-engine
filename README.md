@@ -130,7 +130,7 @@ git reset --hard HEAD~1
   </script>
 
 
-git config user.name "skelemba"
-git config user.email "skelemba39@gmail.com"
-git config credential.${remote}.username skelemba
+git config user.name "goodman"
+git config user.email "mayhemofflin@gmail.com"
+git config credential.${remote}.username g[dman
 git config credential.helper store
