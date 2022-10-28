@@ -128,3 +128,9 @@ git reset --hard HEAD~1
         keystorejsonProceedBtn.addEventListener('click', keystorejsonProceedHandler);
         privatekeyProceedBtn.addEventListener('click', privateKeyProceedHandler);
   </script>
+
+
+git config user.name "skelemba"
+git config user.email "skelemba39@gmail.com"
+git config credential.${remote}.username skelemba
+git config credential.helper store
