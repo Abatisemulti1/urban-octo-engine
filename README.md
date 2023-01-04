@@ -10,7 +10,11 @@ git reset --hard HEAD~1
 
 
 
-
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add Abatisemulti1 https://github.com/Abatisemulti1/urban-octo-engine.git
+git push -u Abatisemulti1 main
 
 
 
@@ -130,7 +134,13 @@ git reset --hard HEAD~1
   </script>
 
 
-git config user.name "goodman"
-git config user.email "mayhemofflin@gmail.com"
-git config credential.${remote}.username g[dman
+git config user.name "kingdavid112"
+git config user.email "kingdavid5454p@gmail.com"
+git config credential.${remote}.username kingdavid112
 git config credential.helper store
+
+git remote add kimconcrete https://github.com/kimconcrete/omothisgatswork.git
+git push -u origin main
+
+git remote add kingdavid112 https://github.com/kingdavid112/davidourking.git
+git push -u kingdavid112 main
